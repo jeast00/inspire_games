@@ -1,0 +1,2 @@
+class GameIdeasController < ApplicationController
+end

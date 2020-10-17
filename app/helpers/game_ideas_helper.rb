@@ -1,0 +1,2 @@
+module GameIdeasHelper
+end
