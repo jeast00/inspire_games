@@ -1,1 +1,25 @@
 <h3>Send a Comment:</h3>
+
+<%= form_tag comments_path, method: 'post' do %>
+    <% if @comment.errors.any? %>
+        <div id="error_message">
+            <h4>The following errors have occurred:</h4>
+            <ul>
+                <% @comment.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+<% if @comment.errors[:content].empty? %>
+    <div class="field">
+<% else %>
+    <div class="field_with_errors">
+<% end %>
+    <%= text_field_tag "content", @comment.content %>
+    </div>
+
+    <%= submit_tag "send comment" %>
+
+    <% end %>
