@@ -12,14 +12,15 @@
         </div>
     <% end %>
 
-<% if @comment.errors[:content].empty? %>
-    <div class="field">
-<% else %>
-    <div class="field_with_errors">
-<% end %>
-    <%= text_field_tag "content", @comment.content %>
-    </div>
-
-    <%= submit_tag "send comment" %>
-
+    <% if @comment.errors[:content].empty? %>
+        <div class="field">
+    <% else %>
+        <div class="field_with_errors">
     <% end %>
+        <%=form_for @comment do |f| %>
+            <%= f.text_area :content %><br>
+            <%= f.collection_select :game_idea_id, GameIdea.all, :id, :title %><br><br>
+            <%= f.submit "send comment" %>
+        <% end %> 
+        </div>       
+<% end %>
