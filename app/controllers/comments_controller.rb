@@ -9,4 +9,9 @@ class CommentsController < ApplicationController
         end
     end
 
+    def new
+        @comment = Comment.new(user_id: params[:user_id])
+    end
+
+
 end
