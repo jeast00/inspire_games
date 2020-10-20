@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resourcers :game_ideas
+    resources :game_ideas
   end
 
 

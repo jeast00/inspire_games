@@ -1,6 +1,8 @@
 <p>
     <% @comments.each do |comment| %>
         <p><%= comment.game_idea.title %></p>
-        <p><%= comment.content %></p>
+        <ul>
+            <li><%= comment.content %></li>
+        </ul>
     <% end %>
 </p>
