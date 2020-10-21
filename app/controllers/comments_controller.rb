@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
         end
     end
 
+    def show
+        @comment = Comment.find(params[:id])
+    end
+
     def new
         @comment = Comment.new(user_id: params[:user_id])
     end
@@ -29,8 +33,7 @@ class CommentsController < ApplicationController
 
     def update
         @comment = Comment.find(params[:id])
-
-        if @comment.save
+        if @comment.update(comment_params)
             redirect_to comments_path
         else
             render :edit

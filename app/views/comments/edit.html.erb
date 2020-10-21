@@ -1,6 +1,6 @@
-<h3>Send a Comment:</h3>
+<h3>Edit your comment:</h3>
 
-<%= form_tag comments_path, method: 'post' do %>
+<%= form_tag comments_path, method: 'patch' do %>
     <% if @comment.errors.any? %>
         <div id="error_message">
             <h4>The following errors have occurred:</h4>
@@ -21,7 +21,7 @@
             <%= f.text_area :content %><br>
             <%= f.collection_select :game_idea_id, GameIdea.all, :id, :title %><br><br>
             <%= f.hidden_field :user_id %>
-            <%= f.submit "send comment" %>
+            <%= f.submit "edit comment" %>
         <% end %> 
         </div>       
 <% end %>
