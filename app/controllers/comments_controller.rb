@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
         @comment = Comment.new(user_id: params[:user_id])
     end
 
+    def create
+        @comment = Comment.new(comment_params)
+
+        if @comment.save
+             redirect_to comments_path 
+        else
+            render :new
+        end
+    end
+
 
     private
 
