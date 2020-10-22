@@ -22,12 +22,23 @@ class GameIdeasController < ApplicationController
         end
     end
 
-    def update
+    def edit
+        @game_idea = GameIdea.find(params[:id])
+    end
 
+    def update
+        @game_idea = GameIdea.find(params[:id])
+        if @game_idea.update(game_idea_params)
+            redirect_to game_idea_path 
+        else
+            render :edit 
+        end
     end
 
     def destroy
-
+        @game_idea = GameIdea.find(params[:id])
+        @game_idea.destroy
+        redirect_to game_ideas_path
     end
 
     private 

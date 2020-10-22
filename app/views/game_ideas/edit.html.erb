@@ -1,0 +1,31 @@
+<h3>Create your new game idea!</h3>
+
+<%= form_tag game_idea_path, method: 'patch' do %>
+    <% if @game_idea.errors.any? %>
+        <div id="error_message">
+            <h4>The following errors have occurred:</h4>
+            <ul>
+                <% @game_idea.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <% if @game_idea.errors.empty? %>
+        <div class="field">
+    <% else %>
+        <div class="field_with_errors">
+    <% end %>
+        <%=form_for @game_idea do |f| %>
+            Game Title: <%= f.text_field :title %><br>
+            Description of Game: <%= f.text_area :description %><br>
+            Game Type: <%= f.text_field :game_type %><br>
+            The Story<br>
+            Start from the beginning...<br><%= f.text_area :beginning_content %><br>
+            What is the climax/middle point?<br><%= f.text_area :middle_content %><br>
+            What is the conclusion/ending of the story?<br><%= f.text_area :ending_content %><br>
+            <%= f.submit "Edit Game Idea" %>
+        <% end %> 
+        </div>       
+<% end %>
