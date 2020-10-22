@@ -1,6 +1,6 @@
 <h3>Edit your comment:</h3>
 
-<%= form_tag comments_path, method: 'patch' do %>
+<%= form_tag comment_path, method: 'patch' do %>
     <% if @comment.errors.any? %>
         <div id="error_message">
             <h4>The following errors have occurred:</h4>
