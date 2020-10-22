@@ -1,2 +1,30 @@
 <h2>Sign Up Here!</h2>
 
+<%= form_tag users_path, method: 'post' do %>
+    <% if @user.errors.any? %>
+        <div id="error_message">
+            <h4>The following errors have occurred:</h4>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <% if @user.errors.empty? %>
+        <div class="field">
+    <% else %>
+        <div class="field_with_errors">
+    <% end %>
+        <%=form_for @user do |f| %>
+            Username: <%= f.text_field :user_name %><br>
+            First Name: <%= f.text_field :first_name %><br>
+            Last Name: <%= f.text_field :last_name %><br>
+            Email:<%= f.email_field :email %><br>
+            Password:<%= f.password_field :password %><br>
+            
+            <%= f.submit "Submit" %>
+        <% end %> 
+        </div>       
+<% end %>

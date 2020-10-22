@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @user = User.all 
+        @users = User.all 
     end
 
     def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         
         if @user.save
-            redirect_to game_ideas_path
+            redirect_to users_path
         else
             render :new
         end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
+        params.require(:user).permit(:user_name, :first_name, :last_name, :email, :password)
     end
 
 
