@@ -25,6 +25,7 @@
             Start from the beginning...<br><%= f.text_area :beginning_content %><br>
             What is the climax/middle point?<br><%= f.text_area :middle_content %><br>
             What is the conclusion/ending of the story?<br><%= f.text_area :ending_content %><br>
+            <%= f.hidden_field :user_id %>
             <%= f.submit "Create Game Idea" %>
         <% end %> 
         </div>       

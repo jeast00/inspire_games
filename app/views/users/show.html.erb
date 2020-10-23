@@ -1,0 +1,4 @@
+<%= @user.first_name %>'s Game Ideas
+<%= @user.game_ideas.each do |game_idea| %>
+    <%= game_idea.title %>
+    <% end %>

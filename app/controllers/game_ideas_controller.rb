@@ -1,7 +1,12 @@
 class GameIdeasController < ApplicationController
 
     def index
-        @game_ideas = GameIdea.all
+        if params[:user_id]
+            @user = User.find(params[:user_id])
+            @game_ideas = @user.game_ideas
+        else
+            @game_ideas = GameIdea.all
+        end
     end
 
     def show
@@ -9,7 +14,7 @@ class GameIdeasController < ApplicationController
     end
 
     def new
-        @game_idea = GameIdea.new
+        @game_idea = GameIdea.new(user_id: params[:user_id])
     end
 
     def create
@@ -44,7 +49,7 @@ class GameIdeasController < ApplicationController
     private 
 
     def game_idea_params
-        params.require(:game_idea).permit(:title, :description, :game_type, :beginning_content, :middle_content, :ending_content)
+        params.require(:game_idea).permit(:title, :description, :game_type, :beginning_content, :middle_content, :ending_content, :user_id)
     end
 
 end

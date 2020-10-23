@@ -25,7 +25,8 @@ end
                     game_type:Faker::Game.genre,
                     beginning_content:Faker::Lorem.paragraph,
                     middle_content:Faker::Lorem.paragraph,
-                    ending_content:Faker::Lorem.paragraph)
+                    ending_content:Faker::Lorem.paragraph,
+                    user_id: User.all.sample.id)
 end
 
 40.times do

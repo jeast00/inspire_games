@@ -7,7 +7,7 @@ class CreateGameIdeas < ActiveRecord::Migration[6.0]
       t.text :beginning_content
       t.text :middle_content
       t.text :ending_content
-
+      t.integer :user_id
       t.timestamps
     end
   end
